@@ -18,9 +18,24 @@
   transform: translate(-50%, -50%);
 }
 
-.mainLayer {
+.mainLayerAsRelative {
   border: 15px solid rgb(152, 61, 0);
   position: relative;
   width: 720px;
   height: 480px;
+}
+
+/* ----------------------------------------- */
+
+.startScreenImage {
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  height: 480px;
+  width: 100%;
+  max-width: 720px;
+  object-fit: fill;
 }

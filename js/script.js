@@ -6,7 +6,7 @@ function resetGlobals() {
 }
 
 function startGame() {
-  document.getElementById("startLayerForCanvas").style.display = "none";
+  document.getElementById("startScreenImage").style.display = "none";
   document.getElementById("buttonContainerSecond").style.display = "none";
   document.getElementById("customH1").style.display = "none";
   document.getElementById("canvas").style.display = "block";
@@ -48,7 +48,7 @@ function winningGame() {
 function returnToMenu() {
   clearAllIntervals();
   resetGlobals();
-  document.getElementById("startLayerForCanvas").style.display = "block";
+  document.getElementById("startScreenImage").style.display = "block";
   document.getElementById("buttonContainerSecond").style.display = "flex";
   document.getElementById("customH1").style.display = "block";
   document.getElementById("canvas").style.display = "none";

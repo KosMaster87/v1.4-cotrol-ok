@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="./fonts.css" />
     <link rel="stylesheet" href="./style/layout.css" />
-    <link rel="stylesheet" href="./style/menu.css">
+    <link rel="stylesheet" href="./style/menu.css" />
     <link rel="stylesheet" href="./style.css" />
 
     <script src="./js/global.js"></script>
@@ -44,7 +44,7 @@
   <body>
     <h1 class="customH1" id="customH1">El Pollo loco</h1>
 
-    <div class="minLayer" id="minLayer">
+    <div class="mainLayerAsRelative" id="mainLayerAsRelative">
       <canvas
         id="canvas"
         class="canvas"
@@ -53,21 +53,13 @@
         height="480px"
       ></canvas>
 
-      <!-- -------------------------------------------------------------- -->
-      <!-- START SCREEN -->
-      <!-- -------------------------------------------------------------- -->
-      <div
-        class="startLayerForCanvas"
-        id="startLayerForCanvas"
+      <img
+        id="startScreenImage"
+        class="startScreenImage"
+        src="./img/9_intro_outro_screens/start/startscreen_1.png"
+        alt="Start screen image"
         style="display: block"
-      >
-        <img
-          id="startScreenImage"
-          class="startScreenImage"
-          src="./img/9_intro_outro_screens/start/startscreen_1.png"
-          alt="Start screen image"
-        />
-      </div>
+      />
 
       <div class="Overlayer" id="Overlayer">
         <!-- -------------------------------------------------------------- -->
@@ -214,72 +206,6 @@
           </div>
         </div>
       </div>
-
-      <!-- -------------------------------------------------------------- -->
-      <!-- GAME OVER LAYER -->
-      <!-- -------------------------------------------------------------- -->
-      <!-- <div
-      class="gameOverLayerForCanvas"
-      id="gameOverLayerForCanvas"
-      style="display: none"
-    >
-      <img
-        class="gameOverScreenImage"
-        id="gameOverScreenImage"
-        src="./img/9_intro_outro_screens/game_over/game over.png"
-        alt="Game over screen image"
-      />
-
-      <button
-        class="returnToMenuBtn"
-        id="returnToMenuBtn"
-        style="display: none"
-        onclick="returnToMenu()"
-      >
-        RETURN TO MENU
-      </button>
-
-      <button
-        class="restartAfterGameOverBtn"
-        id="restartAfterGameOverBtn"
-        onclick="restart()"
-      >
-        Try again
-      </button>
-    </div> -->
-
-      <!-- -------------------------------------------------------------- -->
-      <!-- GAME WIN LAYER -->
-      <!-- -------------------------------------------------------------- -->
-      <!-- <div
-      class="gameIsWinningOverLayerForCanvas"
-      id="gameIsWinningOverLayerForCanvas"
-      style="display: none"
-    >
-      <img
-        class="gameOverScreenImage"
-        id="gameOverScreenImage"
-        src="./img/9_intro_outro_screens/game_over/game over.png"
-        alt="Game over screen image"
-      />
-
-      <button
-        class="returnToMenuBtn"
-        id="returnToMenuBtn"
-        style="display: none"
-        onclick="returnToMenu()"
-      >
-        RETURN TO MENU
-      </button>
-
-      <button
-        class="restartAfterGameOverBtn"
-        id="restartAfterGameOverBtn"
-        onclick="restart()"
-      >
-        Try again
-      </button>
-    </div> -->
     </div>
   </body>
 </html>

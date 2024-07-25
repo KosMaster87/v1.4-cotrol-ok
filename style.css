@@ -11,6 +11,8 @@ body {
   background-image: url("./img/desert.png");
   /* background: cadetblue; */
   font-family: "Sancreek";
+
+  height: 100dvh;
 }
 
 /* ----------------------------------------- */
@@ -24,7 +26,7 @@ button {
 }
 
 .buttonContainerSecond {
-  background-color: rgba(185, 70,27);
+  background-color: rgba(185, 70, 27);
   border-radius: 0.8rem;
   border: 0.5px solid black;
   width: 13rem;
@@ -57,25 +59,10 @@ button {
 
 /* ----------------------------------------- */
 .canvas {
+  /* width: 100%; */
   background-color: rgb(13, 92, 26);
   border-radius: 0.5rem;
-}
-
-/* ----------------------------------------- */
-.startLayerForCanvas {
-  width: 100%;
-}
-
-.startScreenImage {
-  border-radius: 0.5rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  width: 720px;
-  height: 480px;
-  object-fit: fill;
+  z-index: 1;
 }
 
 /* ----------------------------------------- */
