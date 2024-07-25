@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./img/6_salsa_bottle/1_salsa_bottle_on_ground.png"
+    />
+    <link rel="stylesheet" href="./fonts.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="./js/global.js"></script>
+
+    <script src="./models/drawable-object.class.js"></script>
+    <script src="./models/movable-object.class.js"></script>
+    <script src="./models/throwable-object.class.js"></script>
+
+    <script src="./models/keyboard.class.js"></script>
+
+    <script src="./models/map-background.class.js"></script>
+    <script src="./models/character.class.js"></script>
+    <script src="./models/enemy-chicken.class.js"></script>
+    <script src="./models/enemy-endboss.class.js"></script>
+    <script src="./models/map-cloud.class.js"></script>
+
+    <script src="./models/status-bar-character.class.js"></script>
+    <script src="./models/status-bar-coin.class.js"></script>
+    <script src="./models/status-bar-bottle.class.js"></script>
+
+    <script src="./models/world.class.js"></script>
+
+    <script src="./models/level.class.js"></script>
+    <script src="./levels/level1.js"></script>
+
+    <script src="./js/game.js"></script>
+    <script src="./js/script.js"></script>
+    <title>El Pollo Loco</title>
+  </head>
+
+  <body>
+    <h1>El Pollo loco</h1>
+
+    <!-- -------------------------------------------------------------- -->
+    <!-- Steuerelemente für mobile Geräte -->
+    <!-- -------------------------------------------------------------- -->
+    <div class="mobileControls" id="mobileControls">
+      <button id="leftButton">←</button>
+      <button id="rightButton">→</button>
+      <button id="jumpButton">↑</button>
+      <button id="throwButton">★</button>
+    </div>
+    <!-- -------------------------------------------------------------- -->
+
+    <!-- -------------------------------------------------------------- -->
+
+    <div class="mainLayerForCanvas" id="mainLayerForCanvas">
+      <!-- -------------------------------------------------------------- -->
+      <!-- CANVAS -->
+      <!-- -------------------------------------------------------------- -->
+      <div class="canvasParent" id="canvasParent" style="display: none">
+        <canvas
+          id="canvas"
+          class="canvas"
+          style="display: none"
+          width="720px"
+          height="480px"
+        ></canvas>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <!-- START LAYER -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="startLayerForCanvas"
+        id="startLayerForCanvas"
+        style="display: block"
+      >
+        <img
+          id="startScreenImage"
+          class="startScreenImage"
+          src="./img/9_intro_outro_screens/start/startscreen_1.png"
+          alt="Start screen image"
+        />
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <!-- START LAYER -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="buttonContainerFirst"
+        id="buttonContainerFirst"
+        style="display: block"
+      >
+        <div
+          class="buttonContainerSecond"
+          id="buttonContainerSecond"
+          style="display: flex"
+        >
+          <button
+            class="startGameButton"
+            id="startGameButton"
+            onclick="initGame()"
+          >
+            Pepe in action!
+          </button>
+
+          <button
+            class="instructionPopUpButton"
+            id="instructionPopUpButton"
+            onclick="openInstructionPopUpSelf()"
+          >
+            INSTRUCTIONS
+          </button>
+        </div>
+
+        <div
+          class="buttonContainerThird"
+          id="buttonContainerThird"
+          style="display: none"
+        >
+          <img
+            class="muteButton"
+            id="muteButton"
+            src="./img/10_menu/volume_up.svg"
+            alt="Mute Button"
+          />
+          <img
+            class="quikInstructionBtn"
+            id="quikInstructionBtn"
+            src="./img/10_menu/settings.svg"
+            alt="Quik instruction button"
+            onclick="openInstructionPopUpSelf()"
+          />
+          <img
+            class="fullScreenModeBtn"
+            id="fullScreenModeBtn"
+            src="./img/10_menu/fullscreen.svg"
+            alt="Toggel fullscreen mode."
+          />
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <!-- GAME OVER LAYER -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="gameOverLayerForCanvas"
+        id="gameOverLayerForCanvas"
+        style="display: none"
+      >
+        <img
+          class="gameOverScreenImage"
+          id="gameOverScreenImage"
+          src="./img/9_intro_outro_screens/game_over/game over.png"
+          alt="Game over screen image"
+        />
+
+        <button
+          class="returnToMenuBtn"
+          id="returnToMenuBtn"
+          style="display: none"
+          onclick="returnToMenu()"
+        >
+          RETURN TO MENU
+        </button>
+
+        <button
+          class="restartAfterGameOverBtn"
+          id="restartAfterGameOverBtn"
+          onclick="restart()"
+        >
+          Try again
+        </button>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <!-- GAME WIN LAYER -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="gameIsWinningOverLayerForCanvas"
+        id="gameIsWinningOverLayerForCanvas"
+        style="display: none"
+      >
+        <img
+          class="gameOverScreenImage"
+          id="gameOverScreenImage"
+          src="./img/9_intro_outro_screens/game_over/game over.png"
+          alt="Game over screen image"
+        />
+
+        <button
+          class="returnToMenuBtn"
+          id="returnToMenuBtn"
+          style="display: none"
+          onclick="returnToMenu()"
+        >
+          RETURN TO MENU
+        </button>
+
+        <button
+          class="restartAfterGameOverBtn"
+          id="restartAfterGameOverBtn"
+          onclick="restart()"
+        >
+          Try again
+        </button>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <!-- INSTRUCTION POPUP -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="instructionPopUpSelf"
+        id="instructionPopUpSelf"
+        style="display: none"
+      >
+        <img
+          class="instructionCloseBtn"
+          id="instructionCloseBtn"
+          style="display: block"
+          src="./img/10_menu/close.svg"
+          alt="Instruction Fenster Schließen."
+          onclick="closeInstructionPopUpSelf_manuel()"
+        />
+
+        <div class="instructionPopUpHelper">
+          <div class="controllPanelMovement" id="controllPanelMovement">
+            <div class="controllRight" id="controllRight">
+              WALK RIGHT
+              <img
+                src="./img/10_menu/arrow_forward.svg"
+                alt="Controll to the right key."
+              />
+            </div>
+            <div class="controllLeft" id="controllLeft">
+              WALK LEFT
+              <img
+                src="./img/10_menu/arrow_back.svg"
+                alt="Controll to the left key."
+              />
+            </div>
+            <div class="controllThrow" id="controllThrow">
+              THROW YOUR SALSA
+              <img src="/img/10_menu/point_scan.svg" alt="AIM key." />
+            </div>
+            <div class="controllJump" id="controllJump">
+              JUMP OVER
+              <img src="/img/10_menu/space_bar.svg" alt="Spacekey." />
+            </div>
+          </div>
+
+          <div class="controllPanelBtn" id="controllPanelBtn">
+            <button
+              class="returnToMenuBtn"
+              id="returnToMenuBtn"
+              style="display: none"
+              onclick="returnToMenu()"
+            >
+              RETURN TO MENU
+            </button>
+
+            <button
+              class="restartAfterGameOverBtn"
+              id="restartAfterGameOverBtn"
+              style="display: none"
+              onclick="restart()"
+            >
+              Restart game
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+    </div>
+  </body>
+  <!-- <script>
+    document.getElementById("leftButton").addEventListener("touchstart", () => {
+      keyboard.LEFT = true;
+    });
+    document.getElementById("leftButton").addEventListener("touchend", () => {
+      keyboard.LEFT = false;
+    });
+
+    document
+      .getElementById("rightButton")
+      .addEventListener("touchstart", () => {
+        keyboard.RIGHT = true;
+      });
+    document.getElementById("rightButton").addEventListener("touchend", () => {
+      keyboard.RIGHT = false;
+    });
+
+    document.getElementById("jumpButton").addEventListener("touchstart", () => {
+      keyboard.UP = true;
+    });
+    document.getElementById("jumpButton").addEventListener("touchend", () => {
+      keyboard.UP = false;
+    });
+
+    document
+      .getElementById("throwButton")
+      .addEventListener("touchstart", () => {
+        console.log("Pepe has throw.");
+      });
+  </script> -->
+</html>
