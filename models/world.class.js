@@ -4,9 +4,6 @@ class World {
   level = level1;
   character = new Character();
 
-  throwableObjects = [];
-  throwableObjects = [new ThrowableObject()];
-
   ctx;
   canvas;
   keyboard;
@@ -15,6 +12,9 @@ class World {
   pepeStatusBar = new CharacterStatusBar();
   coinStatusBar = new CoinStatusBar();
   bottleStatusBar = new BottleStatusBar();
+
+  throwableObjects = [new ThrowableObject()];
+  throwableObjects = [];
 
   /**
    * First step to add the draw in this document.

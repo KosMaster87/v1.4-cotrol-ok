@@ -8,6 +8,23 @@ class MovableObject extends DrawableObject {
   speedY = 0; // Geschwindigkeit nach unten.
   acceleration = 1; // Beschleunigung
 
+  /**
+   * Das Object-Modell "offset" für die Figures.
+   * Mit offset hat man eine Feineinstellung des bereiches, wo die Objekte in Berührung kommen.
+   */
+  offset = {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  };
+  // offset = { // Florian sein offset
+  //   x: 0, // links
+  //   y: 0, // top
+  //   with: 0, // rechts
+  //   height: 0, // unten
+  // };
+
   // ################################ applyGravity START #################################################
 
   /**
@@ -160,6 +177,21 @@ class MovableObject extends DrawableObject {
   //     'left': -10,
   //     'right': -10
   // };
+
+  // florianOffset() {
+  //   if (this.checkInstances()) {
+  //     ctx.beginPath();
+  //     ctx.lineWidth = "5";
+  //     ctx.strokeStyle = "red";
+  //     ctx.rect(
+  //       this.x + this.offset.x,
+  //       this.y + this.offset.y,
+  //       this.x + this.width - this.offset.width - (this.x + this.offset.x),
+  //       this.y + this.height - this.offset.height - (this.y + this.offset.y)
+  //     );
+  //     ctx.stroke();
+  //   }
+  // }
 
   // ###################################### colliding Manager END ###########################################
 }

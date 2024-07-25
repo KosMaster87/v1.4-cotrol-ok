@@ -8,7 +8,7 @@ function resetGlobals() {
 function startGame() {
   document.getElementById("startLayerForCanvas").style.display = "none";
   document.getElementById("buttonContainerSecond").style.display = "none";
-  document.getElementById("canvasParent").style.display = "block";
+  document.getElementById("customH1").style.display = "none";
   document.getElementById("canvas").style.display = "block";
   document.getElementById("buttonContainerThird").style.display = "flex";
   isGameRunning = true;
@@ -50,7 +50,7 @@ function returnToMenu() {
   resetGlobals();
   document.getElementById("startLayerForCanvas").style.display = "block";
   document.getElementById("buttonContainerSecond").style.display = "flex";
-  document.getElementById("canvasParent").style.display = "none";
+  document.getElementById("customH1").style.display = "block";
   document.getElementById("canvas").style.display = "none";
   document.getElementById("buttonContainerThird").style.display = "none";
   returnToMenuHandleInstructionPopUpSelf();
@@ -87,14 +87,16 @@ function returnToMenuHandleInstructionPopUpSelf() {
   restartAfterGameOverBtnRef.forEach((button) => {
     button.style.display = "none";
   });
+
+  checkWidth();
 }
 
 /**
  * Open the "instruction PopUp".
  */
 function openInstructionPopUpSelf() {
+  document.getElementById("buttonContainerSecond").style.display = "none";
   let popUp = document.getElementById("instructionPopUpSelf");
-
   if (popUp.style.display == "block") {
     popUp.style.display = "none";
     document.removeEventListener("click", closeInstructionPopUpSelf_outside);
@@ -116,12 +118,22 @@ function closeInstructionPopUpSelf_outside(event) {
     !popUp.contains(event.target) &&
     event.target !== instructionBtn
   ) {
+    document.getElementById("buttonContainerSecond").style.display = "flex";
     popUp.style.display = "none";
     document.removeEventListener("click", closeInstructionPopUpSelf_outside);
   }
 }
 
 function closeInstructionPopUpSelf_manuel() {
+  document.getElementById("buttonContainerSecond").style.display = "flex";
   let popUpRef = document.getElementById("instructionPopUpSelf");
   popUpRef.style.display = "none";
+}
+
+function checkWidth() {
+  if (innerWidth < 1080) {
+    document.getElementById("customH1").style.display = "none";
+  } else {
+    document.getElementById("customH1").style.display = "flex";
+  }
 }

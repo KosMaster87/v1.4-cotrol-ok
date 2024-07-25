@@ -1,0 +1,26 @@
+.Overlayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* justify-content: space-between; */
+  align-items: center;
+
+  background-color: transparent;
+
+  height: 480px;
+  width: 100%;
+  max-width: 720px;
+  z-index: 20;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mainLayer {
+  border: 15px solid rgb(152, 61, 0);
+  position: relative;
+  width: 720px;
+  height: 480px;
+}

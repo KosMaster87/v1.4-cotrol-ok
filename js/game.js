@@ -11,6 +11,6 @@ let isGameRunning = false;
  */
 function initGame() {
   canvas = document.getElementById("canvas");
-  world = new World(canvas, keyboard);
   startGame();
+  world = new World(canvas, keyboard);
 }

@@ -9,10 +9,18 @@ let intervalIds = [];
 function setStoppableInterval(fn, time) {
   let id = setInterval(fn, time);
   intervalIds.push(id);
-  // console.log(id);
+  console.log("Interval eingetragen mit ID: " + id);
 }
 
+/**
+ * Nach einer beliebigen beendgung des Spieles die eingetragenen Intervale löschen.
+ */
 function clearAllIntervals() {
   intervalIds.forEach(clearInterval);
   intervalIds = [];
 }
+
+// Test
+let id = setStoppableInterval(() => {
+  console.log("Intervale laufen");
+}, 1000);

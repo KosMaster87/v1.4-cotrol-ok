@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Neu hinzugefügt */
+  background: cadetblue;
+  font-family: "Sancreek";
+  width: 100%;
+  height: 100vh; /* Geändert zu 100vh */
+  margin: 0; /* Sicherstellen, dass kein Außenabstand vorhanden ist */
+}
+
+.canvas {
+  background-color: rgb(72, 168, 88);
+  border-radius: 0.5rem;
+  position: relative; /* Neu hinzugefügt */
+}
+
+.Overlayer {
+  position: absolute; /* Neu hinzugefügt */
+  top: 0; /* Neu hinzugefügt */
+  left: 0; /* Neu hinzugefügt */
+  width: 100%;
+  height: 100%; /* Neu hinzugefügt */
+  z-index: 10; /* Neu hinzugefügt */
+  background: rgba(5, 74, 170, 0.8); /* Neu hinzugefügt, um Transparenz hinzuzufügen */
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Neu hinzugefügt */
+  flex-direction: column;
+}
+
+/* Optional: Um sicherzustellen, dass das Startbild ebenfalls zentriert ist */
+.startScreenImage {
+  width: 100%;
+  /* max-width: 720px; */
+  border-radius: 0.5rem;
+}

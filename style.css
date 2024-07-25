@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: url("./img/desert.png");
+  /* background: cadetblue; */
   font-family: "Sancreek";
 }
 
@@ -22,14 +23,13 @@ button {
   cursor: pointer;
 }
 
-/* Sum of main and live-settings buttons. */
-.buttonContainerFirst {
-  position: absolute;
-  top: 9rem;
-}
-
-/* Main layer buttons. */
 .buttonContainerSecond {
+  background-color: rgba(185, 70,27);
+  border-radius: 0.8rem;
+  border: 0.5px solid black;
+  width: 13rem;
+  height: 7rem;
+
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -37,7 +37,6 @@ button {
   gap: 0.2rem;
 }
 
-/* In game live-settings. */
 .buttonContainerThird {
   gap: 0.5rem;
 
@@ -47,7 +46,7 @@ button {
 }
 
 /* ----------------------------------------- */
-h1 {
+.customH1 {
   letter-spacing: 0.2rem;
   text-shadow: 4px 2px 2px #00000080;
   font-size: 3rem;
@@ -57,36 +56,26 @@ h1 {
 }
 
 /* ----------------------------------------- */
-.mainLayerForCanvas {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ----------------------------------------- */
-.canvasParent {
-  width: 720px;
-  height: 480px;
-}
-
 .canvas {
-  width: 100%;
-  height: auto;
-  background-color: rgb(72, 168, 88);
+  background-color: rgb(13, 92, 26);
   border-radius: 0.5rem;
 }
 
 /* ----------------------------------------- */
 .startLayerForCanvas {
-  display: flex;
-  width: 720px;
-  height: 480px;
+  width: 100%;
 }
 
 .startScreenImage {
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
   width: 720px;
   height: 480px;
-  border-radius: 0.5rem;
+  object-fit: fill;
 }
 
 /* ----------------------------------------- */
@@ -137,7 +126,6 @@ h1 {
   border: 0.2rem solid rgba(185, 69, 27, 0.567);
   width: 16rem;
   height: 16rem;
-  position: absolute;
 }
 
 .instructionCloseBtn {
@@ -210,21 +198,9 @@ h1 {
 }
 
 /* ----------------------------------------- */
-.mobileControls {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
 
-.mobileControls button {
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+@media only screen and (max-width: 1080px) and (min-width: 350px) {
+  .customH1 {
+    display: none;
+  }
 }
-/* ----------------------------------------- */
