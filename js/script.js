@@ -7,16 +7,20 @@ function resetGlobals() {
 
 function startGame() {
   document.getElementById("startScreenImage").style.display = "none";
-  document.getElementById("buttonContainerSecond").style.display = "none";
+  document.getElementById("buttonContainerFirst").style.display = "none";
   document.getElementById("customH1").style.display = "none";
   document.getElementById("canvas").style.display = "block";
   document.getElementById("buttonContainerThird").style.display = "flex";
+  document.getElementById("Overlayer").classList.add("Overlayer_beginn");
+  document
+    .getElementById("instructionPopUpSelf_inGame")
+    .classList.add("instructionPopUpSelf_inGame");
   isGameRunning = true;
-  startGameHandleInstructionPopUpSelf();
+  checkWidth();
 }
 
 function restart() {
-  let popUpRef = document.getElementById("instructionPopUpSelf");
+  let popUpRef = document.getElementById("instructionPopUpSelf_inGame");
   popUpRef.style.display = "none";
   document.getElementById("gameOverLayerForCanvas").style.display = "none";
   document.getElementById("gameIsWinningOverLayerForCanvas").style.display =
@@ -27,7 +31,7 @@ function restart() {
 }
 
 function gameOver() {
-  let popUpRef = document.getElementById("instructionPopUpSelf");
+  let popUpRef = document.getElementById("instructionPopUpSelf_inGame");
   popUpRef.style.display = "none";
   document.getElementById("canvas").style.display = "none";
   document.getElementById("gameOverLayerForCanvas").style.display = "block";
@@ -36,7 +40,7 @@ function gameOver() {
 }
 
 function winningGame() {
-  let popUpRef = document.getElementById("instructionPopUpSelf");
+  let popUpRef = document.getElementById("instructionPopUpSelf_inGame");
   popUpRef.style.display = "none";
   document.getElementById("canvas").style.display = "none";
   document.getElementById("gameIsWinningOverLayerForCanvas").style.display =
@@ -49,86 +53,112 @@ function returnToMenu() {
   clearAllIntervals();
   resetGlobals();
   document.getElementById("startScreenImage").style.display = "block";
-  document.getElementById("buttonContainerSecond").style.display = "flex";
+  document.getElementById("buttonContainerFirst").style.display = "flex";
   document.getElementById("customH1").style.display = "block";
   document.getElementById("canvas").style.display = "none";
   document.getElementById("buttonContainerThird").style.display = "none";
-  returnToMenuHandleInstructionPopUpSelf();
+  document.getElementById("Overlayer").classList.remove("Overlayer_beginn");
+  returnToMenu_handle_instructionPopUpSelf_inGame();
 }
 
-function startGameHandleInstructionPopUpSelf() {
-  let popUpRef = document.getElementById("instructionPopUpSelf");
+function returnToMenu_handle_instructionPopUpSelf_inGame() {
+  let popUpRef = document.getElementById("instructionPopUpSelf_inGame");
   popUpRef.style.display = "none";
-
-  let returnToMenuBtnRef = document.querySelectorAll(".returnToMenuBtn");
-  returnToMenuBtnRef.forEach((button) => {
-    button.style.display = "block";
-  });
-
-  let restartAfterGameOverBtnRef = document.querySelectorAll(
-    ".restartAfterGameOverBtn"
-  );
-  restartAfterGameOverBtnRef.forEach((button) => {
-    button.style.display = "block";
-  });
-}
-
-function returnToMenuHandleInstructionPopUpSelf() {
-  let popUpRef = document.getElementById("instructionPopUpSelf");
-  popUpRef.style.display = "none";
-  let returnToMenuBtnRef = document.querySelectorAll(".returnToMenuBtn");
-  returnToMenuBtnRef.forEach((button) => {
-    button.style.display = "none";
-  });
-
-  let restartAfterGameOverBtnRef = document.querySelectorAll(
-    ".restartAfterGameOverBtn"
-  );
-  restartAfterGameOverBtnRef.forEach((button) => {
-    button.style.display = "none";
-  });
-
   checkWidth();
 }
 
-/**
- * Open the "instruction PopUp".
- */
-function openInstructionPopUpSelf() {
-  document.getElementById("buttonContainerSecond").style.display = "none";
-  let popUp = document.getElementById("instructionPopUpSelf");
-  if (popUp.style.display == "block") {
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+function openInstructionPopUpSelf_inMenu() {
+  document.getElementById("buttonContainerFirst").style.display = "none";
+  let popUp = document.getElementById("instructionPopUpSelf_inMenu");
+
+  if (popUp.style.display === "block") {
     popUp.style.display = "none";
-    document.removeEventListener("click", closeInstructionPopUpSelf_outside);
+    document.removeEventListener(
+      "click",
+      closeInstructionPopUpSelf_outside_inMenu
+    );
   } else {
     popUp.style.display = "block";
-    document.addEventListener("click", closeInstructionPopUpSelf_outside);
+    document.addEventListener(
+      "click",
+      closeInstructionPopUpSelf_outside_inMenu
+    );
   }
 }
 
-/**
- * Close the "instruction PopUp" with an eventlistener and remove the eventlistener.
- */
-function closeInstructionPopUpSelf_outside(event) {
-  let popUp = document.getElementById("instructionPopUpSelf");
-  let instructionBtn = document.getElementById("instructionPopUpButton");
+function closeInstructionPopUpSelf_outside_inMenu(event) {
+  let popUp = document.getElementById("instructionPopUpSelf_inMenu");
 
   if (
     !isGameRunning &&
     !popUp.contains(event.target) &&
-    event.target !== instructionBtn
+    event.target !== instructionPopUpButton
   ) {
-    document.getElementById("buttonContainerSecond").style.display = "flex";
+    document.getElementById("buttonContainerFirst").style.display = "flex";
     popUp.style.display = "none";
-    document.removeEventListener("click", closeInstructionPopUpSelf_outside);
+    document.removeEventListener(
+      "click",
+      closeInstructionPopUpSelf_outside_inMenu
+    );
   }
 }
 
-function closeInstructionPopUpSelf_manuel() {
-  document.getElementById("buttonContainerSecond").style.display = "flex";
-  let popUpRef = document.getElementById("instructionPopUpSelf");
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+function openInstructionPopUpSelf_inGame() {
+  let popUp = document.getElementById("instructionPopUpSelf_inGame");
+
+  if (popUp.style.display === "block") {
+    popUp.style.display = "none";
+    document.removeEventListener(
+      "click",
+      closeInstructionPopUpSelf_outside_inGame
+    );
+  } else {
+    popUp.style.display = "block";
+    document.addEventListener(
+      "click",
+      closeInstructionPopUpSelf_outside_inGame
+    );
+  }
+}
+
+function closeInstructionPopUpSelf_outside_inGame(event) {
+  let popUp = document.getElementById("instructionPopUpSelf_inGame");
+
+  if (
+    isGameRunning &&
+    !popUp.contains(event.target) &&
+    event.target !== quikInstructionBtn
+  ) {
+    document.getElementById("buttonContainerFirst").style.display = "none";
+    popUp.style.display = "none";
+    document.removeEventListener(
+      "click",
+      closeInstructionPopUpSelf_outside_inGame
+    );
+  }
+}
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+function closeInstructionPopUpSelf_manuel_inMenu() {
+  document.getElementById("buttonContainerFirst").style.display = "flex";
+
+  let popUpRef = document.getElementById("instructionPopUpSelf_inMenu");
   popUpRef.style.display = "none";
 }
+
+function closeInstructionPopUpSelf_manuel_inGame() {
+  let popUpRef = document.getElementById("instructionPopUpSelf_inGame");
+  popUpRef.style.display = "none";
+}
+
+// -----------------------------------------------------------------------
 
 function checkWidth() {
   if (innerWidth < 1080) {

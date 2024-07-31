@@ -1,17 +1,17 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: url("./img/desert.png");
-  /* background: cadetblue; */
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: "Sancreek";
-
   height: 100dvh;
 }
 
@@ -26,7 +26,7 @@ button {
 }
 
 .buttonContainerSecond {
-  background-color: rgba(185, 70, 27);
+  background-color: rgb(80 134 165);
   border-radius: 0.8rem;
   border: 0.5px solid black;
   width: 13rem;
@@ -63,6 +63,8 @@ button {
   background-color: rgb(13, 92, 26);
   border-radius: 0.5rem;
   z-index: 1;
+
+  position: absolute;
 }
 
 /* ----------------------------------------- */
@@ -113,6 +115,10 @@ button {
   border: 0.2rem solid rgba(185, 69, 27, 0.567);
   width: 16rem;
   height: 16rem;
+}
+
+.instructionPopUpSelf_inGame {
+  margin-top: 5rem;
 }
 
 .instructionCloseBtn {

@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
       rel="icon"
       type="image/x-icon"
       href="./img/6_salsa_bottle/1_salsa_bottle_on_ground.png"
@@ -86,7 +93,7 @@
             <button
               class="instructionPopUpButton"
               id="instructionPopUpButton"
-              onclick="openInstructionPopUpSelf()"
+              onclick="openInstructionPopUpSelf_inMenu()"
             >
               INSTRUCTIONS
             </button>
@@ -94,20 +101,94 @@
         </div>
 
         <!-- -------------------------------------------------------------- -->
-        <!-- INSTRUCTION POPUP -->
+        <!-- IN GAME HOT BUTTONS -->
+        <!-- -------------------------------------------------------------- -->
+        <div
+          class="buttonContainerThird"
+          id="buttonContainerThird"
+          style="display: none"
+        >
+          <img
+            class="muteButton"
+            id="muteButton"
+            src="./img/10_menu/volume_up.svg"
+            alt="Mute Button"
+          />
+          <img
+            class="quikInstructionBtn"
+            id="quikInstructionBtn"
+            src="./img/10_menu/settings.svg"
+            alt="Quik instruction button"
+            onclick="openInstructionPopUpSelf_inGame()"
+          />
+          <img
+            class="fullScreenModeBtn"
+            id="fullScreenModeBtn"
+            src="./img/10_menu/fullscreen.svg"
+            alt="Toggel fullscreen mode."
+          />
+        </div>
+
+        <!-- -------------------------------------------------------------- -->
+        <!-- INSTRUCTION POPUP IN MENU-->
         <!-- -------------------------------------------------------------- -->
         <div
           class="instructionPopUpSelf"
-          id="instructionPopUpSelf"
+          id="instructionPopUpSelf_inMenu"
           style="display: none"
         >
           <img
             class="instructionCloseBtn"
-            id="instructionCloseBtn"
+            id="instructionCloseBtn_inMenu"
             style="display: block"
             src="./img/10_menu/close.svg"
             alt="Instruction Fenster Schließen."
-            onclick="closeInstructionPopUpSelf_manuel()"
+            onclick="closeInstructionPopUpSelf_manuel_inMenu()"
+          />
+
+          <div class="instructionPopUpHelper">
+            <div class="controllPanelMovement" id="controllPanelMovement">
+              <div class="controllRight" id="controllRight">
+                WALK RIGHT
+                <img
+                  src="./img/10_menu/arrow_forward.svg"
+                  alt="Controll to the right key."
+                />
+              </div>
+              <div class="controllLeft" id="controllLeft">
+                WALK LEFT
+                <img
+                  src="./img/10_menu/arrow_back.svg"
+                  alt="Controll to the left key."
+                />
+              </div>
+              <div class="controllThrow" id="controllThrow">
+                THROW YOUR SALSA
+                <img src="/img/10_menu/point_scan.svg" alt="AIM key." />
+              </div>
+              <div class="controllJump" id="controllJump">
+                JUMP OVER
+                <img src="/img/10_menu/space_bar.svg" alt="Spacekey." />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- -------------------------------------------------------------- -->
+        <!-- INSTRUCTION POPUP IN GAME-->
+        <!-- -------------------------------------------------------------- -->
+        <div
+          class="instructionPopUpSelf"
+          id="instructionPopUpSelf_inGame"
+          style="display: none"
+        >
+          <img
+            class="instructionCloseBtn"
+            id="instructionCloseBtn_inGame"
+            style="display: block"
+            src="./img/10_menu/close.svg"
+            alt="Instruction Fenster Schließen."
+            onclick="closeInstructionPopUpSelf_manuel_inGame()"
           />
 
           <div class="instructionPopUpHelper">
@@ -140,7 +221,6 @@
               <button
                 class="returnToMenuBtn"
                 id="returnToMenuBtn"
-                style="display: none"
                 onclick="returnToMenu()"
               >
                 RETURN TO MENU
@@ -149,42 +229,12 @@
               <button
                 class="restartAfterGameOverBtn"
                 id="restartAfterGameOverBtn"
-                style="display: none"
                 onclick="restart()"
               >
                 Restart game
               </button>
             </div>
           </div>
-        </div>
-
-        <!-- -------------------------------------------------------------- -->
-        <!-- IN GAME HOT BUTTONS -->
-        <!-- -------------------------------------------------------------- -->
-        <div
-          class="buttonContainerThird"
-          id="buttonContainerThird"
-          style="display: none"
-        >
-          <img
-            class="muteButton"
-            id="muteButton"
-            src="./img/10_menu/volume_up.svg"
-            alt="Mute Button"
-          />
-          <img
-            class="quikInstructionBtn"
-            id="quikInstructionBtn"
-            src="./img/10_menu/settings.svg"
-            alt="Quik instruction button"
-            onclick="openInstructionPopUpSelf()"
-          />
-          <img
-            class="fullScreenModeBtn"
-            id="fullScreenModeBtn"
-            src="./img/10_menu/fullscreen.svg"
-            alt="Toggel fullscreen mode."
-          />
         </div>
 
         <!-- -------------------------------------------------------------- -->
