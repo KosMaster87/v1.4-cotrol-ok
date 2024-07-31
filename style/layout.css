@@ -1,5 +1,4 @@
 .mainLayerAsRelative {
-  /* border: 15px solid rgb(152, 61, 0); */
   position: relative;
   width: 720px;
   height: 480px;
@@ -7,16 +6,15 @@
 
 /* ----------------------------------------- */
 
-.Overlayer {
+.Overlayer_inMenu {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* justify-content: space-evenly; */
   align-items: center;
 
   background-color: transparent;
 
-  height: 480px;
+  min-height: calc(100% - 2rem);
   width: 100%;
   max-width: 720px;
   z-index: 20;
@@ -27,11 +25,23 @@
   transform: translate(-50%, -50%);
 }
 
-/* Nur zum fexieren der Optionenleiste werend des Spieles. */
-.Overlayer_beginn {
-  justify-content: flex-start;
-  padding-top: 1rem;
+.Overlayer_inGame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
+  background-color: transparent;
+
+  min-height: calc(100% - 2rem);
+  width: 100%;
+  max-width: 720px;
+  z-index: 20;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* ----------------------------------------- */

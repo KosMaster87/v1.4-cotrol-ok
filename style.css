@@ -39,14 +39,6 @@ button {
   gap: 0.2rem;
 }
 
-.buttonContainerThird {
-  gap: 0.5rem;
-
-  img {
-    cursor: pointer;
-  }
-}
-
 /* ----------------------------------------- */
 .customH1 {
   letter-spacing: 0.2rem;
@@ -59,12 +51,10 @@ button {
 
 /* ----------------------------------------- */
 .canvas {
-  /* width: 100%; */
   background-color: rgb(13, 92, 26);
   border-radius: 0.5rem;
-  z-index: 1;
-
   position: absolute;
+  z-index: 1;
 }
 
 /* ----------------------------------------- */
@@ -115,10 +105,6 @@ button {
   border: 0.2rem solid rgba(185, 69, 27, 0.567);
   width: 16rem;
   height: 16rem;
-}
-
-.instructionPopUpSelf_inGame {
-  margin-top: 5rem;
 }
 
 .instructionCloseBtn {

@@ -11,7 +11,10 @@ function startGame() {
   document.getElementById("customH1").style.display = "none";
   document.getElementById("canvas").style.display = "block";
   document.getElementById("buttonContainerThird").style.display = "flex";
-  document.getElementById("Overlayer").classList.add("Overlayer_beginn");
+  document.getElementById("mobileControlHub").style.display = "flex";
+
+  document.getElementById("Overlayer").classList.remove("Overlayer_inMenu");
+  document.getElementById("Overlayer").classList.add("Overlayer_inGame");
   document
     .getElementById("instructionPopUpSelf_inGame")
     .classList.add("instructionPopUpSelf_inGame");
@@ -57,7 +60,9 @@ function returnToMenu() {
   document.getElementById("customH1").style.display = "block";
   document.getElementById("canvas").style.display = "none";
   document.getElementById("buttonContainerThird").style.display = "none";
-  document.getElementById("Overlayer").classList.remove("Overlayer_beginn");
+  document.getElementById("mobileControlHub").style.display = "none";
+  document.getElementById("Overlayer").classList.remove("Overlayer_inGame");
+  document.getElementById("Overlayer").classList.add("Overlayer_inMenu");
   returnToMenu_handle_instructionPopUpSelf_inGame();
 }
 
